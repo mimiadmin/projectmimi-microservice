@@ -3,7 +3,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name:  group-app
-  namespace: prod-env
+  namespace: test-env
 spec:
   selector:
     matchLabels:
