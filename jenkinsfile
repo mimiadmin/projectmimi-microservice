@@ -41,7 +41,7 @@ pipeline {
             steps {
                 script {
                     withDockerRegistry(credentialsId: 'DockerHub-Credential', toolName: 'docker') {
-                        sh "docker build -t kingsleyzikora/terrence:1.0 ."
+                        sh "docker build -t mimijoso/josozikora:1.0."
                     }
                 }
             }
@@ -49,7 +49,7 @@ pipeline {
         // Execute SCA/Dependency Test on Service Docker Image
         stage('Snyk SCA Test | Dependencies') {
             steps {
-                sh "${SNYK_HOME}/snyk-linux test --docker kingsleyzikora/terrence:1.0 || true" 
+                sh "${SNYK_HOME}/snyk-linux test --docker mimijoso/josozikora:1.0 || true" 
             }
         }
         // Push Service Image to DockerHub
@@ -57,7 +57,7 @@ pipeline {
             steps {
                 script {
                     withDockerRegistry(credentialsId: 'DockerHub-Credential', toolName: 'docker') {
-                        sh "docker push kingsleyzikora/terrence:1.0 "
+                        sh "docker push mimijoso/josozikora:1.0 "
                     }
                 }
             }
