@@ -16,7 +16,7 @@ spec:
       serviceAccountName: default
       containers:
       - name: server
-        image: kingsleyzikora/terrence:1.0
+        image: mimijoso/josozikora:1.0
         ports:
         - containerPort: 8080
         env:
