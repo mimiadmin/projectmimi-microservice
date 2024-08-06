@@ -6,7 +6,7 @@ def COLOR_MAP = [
 pipeline {
     agent any
     environment {
-        SCANNER_HOME=tool 'SonarScanner'
+       // SCANNER_HOME=tool 'SonarScanner'
         SNYK_HOME   = tool name: 'Snyk'
     }
     tools {
@@ -14,14 +14,14 @@ pipeline {
     }
     stages {
         // SonarQube SAST Code Analysis
-        stage("SonarQube SAST Analysis"){
-            steps{
-                withSonarQubeEnv('Sonar-Server') {
-                    sh ''' $SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=app-frontend-service \
-                    -Dsonar.projectKey=app-frontend-service '''
-                }
-            }
-        }
+        //stage("SonarQube SAST Analysis"){
+           // steps{
+               // withSonarQubeEnv('Sonar-Server') {
+                  //  sh ''' $SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=app-frontend-service \
+                   // -Dsonar.projectKey=app-frontend-service '''
+               // }
+          //  }
+      //  }
         // Providing Snyk Access
         stage('Authenticate & Authorize Snyk') {
             steps {
